@@ -164,7 +164,7 @@ def train(args):
 
                 # Compute loss
                 loss = Gaussian2DLikelihood(outputs, nodes[1:], nodesPresent[1:], args.pred_length)
-                loss_batch += loss.data[0]
+                loss_batch += loss.item()
 
                 # Compute gradients
                 loss.backward()
@@ -234,7 +234,7 @@ def train(args):
 
                 # Compute loss
                 loss = Gaussian2DLikelihood(outputs, nodes[1:], nodesPresent[1:], args.pred_length)
-                loss_batch += loss.data[0]
+                loss_batch += loss.item()
 
             # Reset the stgraph
             stgraph.reset()
